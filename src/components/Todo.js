@@ -7,6 +7,10 @@ function Todo({ text }) {
   function deleteHandler() {
     setIsModalOpen(true);
   }
+
+  const closeModalHandler = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="card">
       <h2>Title</h2>
@@ -18,8 +22,8 @@ function Todo({ text }) {
       </div>
       {isModalOpen && (
         <>
-          <Modal />
-          <Backdrop />
+          <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />
+          <Backdrop onCancel={closeModalHandler} />
         </>
       )}
     </div>
