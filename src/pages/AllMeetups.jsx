@@ -22,6 +22,11 @@ function AllMeetupsPage() {
   return (
     <section>
       <h1>All MeetupsPage</h1>
+      <ul>
+        {DUMMY_DATA.map((data) => {
+          return <li key={data.id}>{data.title}</li>;
+        })}
+      </ul>
     </section>
   );
 }
