@@ -1,6 +1,11 @@
+import Modal from './Modal';
+import Backdrop from './Backdrop';
+import { useState } from 'react';
 function Todo({ text }) {
+  // data array pertama bisa kita angap sebagai variable, data kedua sebagai method yang merubah nilai pada variable
+  const [isModalOpen, setIsModalOpen] = useState(false);
   function deleteHandler() {
-    console.log('clicked!');
+    setIsModalOpen(true);
   }
   return (
     <div className="card">
@@ -11,6 +16,12 @@ function Todo({ text }) {
           Delete
         </button>
       </div>
+      {isModalOpen && (
+        <>
+          <Modal />
+          <Backdrop />
+        </>
+      )}
     </div>
   );
 }
