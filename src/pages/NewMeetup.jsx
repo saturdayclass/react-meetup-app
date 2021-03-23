@@ -1,9 +1,11 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import NewMeetupForm from '../components/meetup/NewMeetupForm';
 
 const NewMeetup = () => {
-  const onAddMeetup = (data) => {
-    const req = fetch(
+  const history = useHistory();
+  const onAddMeetup = async (data) => {
+    await fetch(
       'https://react-getting-started-31f05-default-rtdb.firebaseio.com/meetups.json',
       {
         method: 'POST',
@@ -13,7 +15,7 @@ const NewMeetup = () => {
         },
       }
     );
-    console.log(req);
+    history.replace('/');
   };
 
   return (
