@@ -8,6 +8,7 @@ const MeetupList = (props) => {
         return (
           <MeetupItem
             key={data.id}
+            id={data.id}
             image={data.image}
             title={data.title}
             description={data.description}
